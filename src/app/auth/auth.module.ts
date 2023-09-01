@@ -4,6 +4,10 @@ import { SharedModule } from '../shared/shared.module';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { BrowserModule } from '@angular/platform-browser';
+import { ToastrModule } from 'ngx-toastr';
 
 
 
@@ -15,7 +19,17 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     SharedModule,
     CommonModule ,
-    HttpClientModule
+    HttpClientModule ,
+    ReactiveFormsModule ,
+    RouterModule ,
+    BrowserModule ,
+    ToastrModule.forRoot(), // Add this to your module
+  ],
+  exports : [
+    HttpClientModule ,
+    ReactiveFormsModule ,
+    BrowserModule ,
+    RouterModule
   ]
 })
 export class AuthModule { }
