@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { NewExamComponent } from './components/new-exam/new-exam.component';
 import { StudentsComponent } from './components/students/students.component';
 import { SubjectsComponent } from './components/subjects/subjects.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -13,7 +14,8 @@ import { SubjectsComponent } from './components/subjects/subjects.component';
     SubjectsComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    SharedModule
   ]
 })
 export class ProfessorModule { }
