@@ -1,14 +1,66 @@
 {
-  "users": [
+  "users": [],
+  "professor": [],
+  "students": [
     {
-      "id": 1,
-      "name": "ahmed",
-      "author": "typicode"
+      "username": "Ahmed",
+      "email": "ahmed@gmail.com",
+      "password": "123",
+      "id": 1
+    },
+    {
+      "username": "Ahmed",
+      "email": "Bouzid@gal",
+      "password": "123",
+      "id": 2
+    },
+    {
+      "username": "aaa",
+      "email": "aaa@g",
+      "password": "aaa",
+      "id": 3
+    },
+    {
+      "username": "lllll",
+      "email": "aaaa@mgm",
+      "password": "aaa",
+      "id": 4
+    },
+    {
+      "username": "Ahled",
+      "email": "hjzk@f",
+      "password": "Ahmed",
+      "id": 5
+    },
+    {
+      "username": "ahmed",
+      "email": "aldzlz@l",
+      "password": "123",
+      "id": 6
+    },
+    {
+      "username": "ahmam",
+      "email": "kka@ss",
+      "password": "123",
+      "id": 7
+    },
+    {
+      "username": "ahle",
+      "email": "aaa@a",
+      "password": "aaa",
+      "id": 8
+    },
+    {
+      "username": "ahmed",
+      "email": "ahmed@gmail.com",
+      "password": "123",
+      "id": 9
+    },
+    {
+      "username": "Yo",
+      "email": "ahmed@gmail.com",
+      "password": "123",
+      "id": 10
     }
-  ] ,
-  "professor" : [
-    
   ]
-
-
 }
