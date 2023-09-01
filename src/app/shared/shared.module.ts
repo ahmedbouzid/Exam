@@ -5,6 +5,7 @@ import { MatrialModule } from './material.module';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
+import { MatRadioModule } from '@angular/material/radio';
 
 
 
@@ -25,7 +26,9 @@ import { RouterModule } from '@angular/router';
     RouterModule,
     MatrialModule,
     CommonModule,
-    NavbarComponent
+    NavbarComponent,
+    MatRadioModule,
+
   ]
 })
 export class SharedModule { }

@@ -32,7 +32,8 @@ const MatrialCommon = [
   MatExpansionModule,
   MatFormFieldModule,
   MatInputModule,
-  MatMenuModule
+  MatMenuModule,
+  MatRadioModule
 ]
 @NgModule({
   imports: [MatrialCommon],

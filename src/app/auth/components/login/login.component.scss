@@ -1,0 +1,39 @@
+.login {
+  width: 60%;
+  margin: 100px auto;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 20px;
+    .loginhead {
+
+
+      background: rgb(247, 82, 82);
+      padding: 10px 20px;
+      width: fit-content;
+      margin: -50px auto;
+      border-radius: 10px;
+      color: white;
+    }
+    .content {
+      margin-top: 40px;
+    }
+}
+.loginfoot {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  button {
+    margin-top: 15px;
+    padding: 0px 30px;
+    font-size: 18px;
+  }
+  a {
+    text-decoration: none;
+  }
+}
+.alert-danger {
+  background-color: #f44336c4;
+  color:#FFF;
+  margin-top: 15px;
+  font-size: 18px;
+}
