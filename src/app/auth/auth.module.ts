@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { SharedModule } from '../shared/shared.module';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -13,7 +14,8 @@ import { RegisterComponent } from './components/register/register.component';
   ],
   imports: [
     SharedModule,
-    CommonModule
+    CommonModule ,
+    HttpClientModule
   ]
 })
 export class AuthModule { }
