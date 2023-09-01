@@ -14,7 +14,10 @@ export class AuthService {
   createUser(model : any) {
     return this.http.post( this.APi+'students' , model)
   }
-  getStudents () {
-    return this.http.get(this.APi+'students')
+  getStudents (type:string) {
+    return this.http.get(this.APi+type)
+  }
+  login (model : any){
+    return this.http.put(this.APi + 'login/1' , model)
   }
 }

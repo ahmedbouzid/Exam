@@ -1,6 +1,21 @@
 {
+  "login": [
+    {
+      "username": "admin",
+      "email": "admin@gmail.com",
+      "role": "professor",
+      "id": 1
+    }
+  ],
   "users": [],
-  "professor": [],
+  "professor": [
+    {
+      "username": "admin",
+      "email": "admin@gmail.com",
+      "password": "123",
+      "id": 1
+    }
+  ],
   "students": [
     {
       "username": "Ahmed",
@@ -49,18 +64,6 @@
       "email": "aaa@a",
       "password": "aaa",
       "id": 8
-    },
-    {
-      "username": "ahmed",
-      "email": "ahmed@gmail.com",
-      "password": "123",
-      "id": 9
-    },
-    {
-      "username": "Yo",
-      "email": "ahmed@gmail.com",
-      "password": "123",
-      "id": 10
     }
   ]
 }
