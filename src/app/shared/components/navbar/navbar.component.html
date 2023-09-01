@@ -9,13 +9,13 @@
     </div>
     <div class="d-flex align-items-center">
       <ul class="nav navbar-right d-flex align-items-center">
-        <li routerLinkActive="active"><a routerLink="new-exam">New Exam</a></li>
-        <li routerLinkActive="active"><a routerLink="students">Students</a></li>
-        <li routerLinkActive="active"><a routerLink="subjects">Subjects</a></li>
-        <li routerLinkActive="active"><a routerLink="login">Login</a></li>
-        <li routerLinkActive="active"><a routerLink="logout">Logout</a></li>
-        <li routerLinkActive="active"><a routerLink="register">Registre</a></li>
-        <li routerLinkActive="active" class="username">Ahmed</li>
+        <li *ngIf="user?.role =='professor'" routerLinkActive="active"><a routerLink="new-exam">New Exam</a></li>
+        <li *ngIf="user?.role =='professor'" routerLinkActive="active"><a routerLink="students">Students</a></li>
+        <li *ngIf="user !== null" routerLinkActive="active"><a routerLink="subjects">Subjects</a></li>
+        <li *ngIf="user == null" routerLinkActive="active"><a routerLink="login">Login</a></li>
+        <li *ngIf="user !== null" routerLinkActive="active" (click)="logout()"><a routerLink="login">Logout</a></li>
+        <li *ngIf="user == null" routerLinkActive="active"><a routerLink="register">Registre</a></li>
+        <li *ngIf="user !== null" routerLinkActive="active" class="username">{{user?.username}}</li>
 
       </ul>
 

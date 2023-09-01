@@ -1,6 +1,6 @@
 import { HttpBackend, HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { environment } from 'src/environments/environment.development';
 
 @Injectable({
@@ -9,6 +9,7 @@ import { environment } from 'src/environments/environment.development';
 export class AuthService {
 
   constructor(private http : HttpClient) { }
+  user = new Subject() ;
 
   APi = 'http://localhost:3000/'
   createUser(model : any) {
@@ -16,6 +17,10 @@ export class AuthService {
   }
   getStudents (type:string) {
     return this.http.get(this.APi+type)
+  }
+  getRole(){
+    return this.http.get(this.APi+'login/1')
+
   }
   login (model : any){
     return this.http.put(this.APi + 'login/1' , model)

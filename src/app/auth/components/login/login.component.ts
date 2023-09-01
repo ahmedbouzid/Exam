@@ -58,6 +58,7 @@ export class LoginComponent implements OnInit{
       };
 
       this.service.login(model).subscribe((res) => {
+        this.service.user.next(res)
         this.toastr.success('You have successfully logged in');
         this.router.navigate(['subjects']);
       });
