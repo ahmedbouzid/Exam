@@ -1,9 +1,9 @@
 {
   "login": [
     {
-      "username": "admin",
-      "email": "admin@gmail.com",
-      "role": "professor",
+      "username": "Ahmed",
+      "email": "ahmed@gmail.com",
+      "role": "students",
       "id": 1
     }
   ],

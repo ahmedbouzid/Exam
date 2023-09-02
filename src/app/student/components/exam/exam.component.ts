@@ -13,6 +13,8 @@ export class ExamComponent  implements OnInit{
   id : any ;
   oneSubject : any ;
   user : any ;
+  SCORESTUDENT :any ;
+  showResult : boolean = false ;
 constructor(
   private currentRoute : ActivatedRoute,
   private service : ProfessorService ,
@@ -55,4 +57,26 @@ constructor(
       console.log('====================================');
     })
   }
+  getAnswer(event :any) {
+
+   let value = event.value ;
+   let  questionIndex = event.source.name ;
+   this.oneSubject.questions[questionIndex].studentAnswer = value ;
+   console.log('====================================');
+   console.log( this.oneSubject.questions);
+   console.log('====================================');
+  }
+  result(){
+    this.SCORESTUDENT = 0
+      for(let x in this.oneSubject.questions) {
+        if(this.oneSubject.questions[x].studentAnswer == this.oneSubject.questions[x].correct)
+        this.SCORESTUDENT++ ;
+        console.log('====================================');
+        console.log(this.SCORESTUDENT);
+        console.log('====================================');
+      }
+      this.showResult = true ;
+
+  }
+
 }
