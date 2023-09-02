@@ -17,7 +17,6 @@
     }
   ],
   "subjects": [
-
     {
       "name": "Mathematique",
       "questions": [
@@ -39,48 +38,6 @@
         }
       ],
       "id": 2
-    },
-    {
-      "name": "eee",
-      "questions": [
-        {
-          "question": "eeeeeeeeee",
-          "answer1": "eeeeee",
-          "answer2": "eeeeee",
-          "answer3": "eeeeeeeee",
-          "answer4": "eeeee",
-          "correct": "eeeee"
-        }
-      ],
-      "id": 3
-    },
-    {
-      "name": "aaaaaaaaa",
-      "questions": [
-        {
-          "question": "aaaaaaaaa",
-          "answer1": "aaaaaa",
-          "answer2": "aaaaaaaaa",
-          "answer3": "aaaaa",
-          "answer4": "aaaaaaaaa",
-          "correct": "aaaaaa"
-        }
-      ],
-      "id": 4
-    },
-    {
-      "name": "aaaaaaaaa",
-      "questions": [
-        {
-          "question": "aaaaaaaaa",
-          "answer1": "aaaaaa",
-          "answer2": "aaaaaaaaa",
-          "answer3": "aaaaa",
-          "answer4": "aaaaaaaaa",
-          "correct": "aaaaaa"
-        }
-      ],
-      "id": 5
     },
     {
       "name": "Math",
@@ -137,20 +94,6 @@
         }
       ],
       "id": 9
-    },
-    {
-      "name": "fresh",
-      "questions": [
-        {
-          "question": "Caluculer",
-          "answer1": "a",
-          "answer2": "b",
-          "answer3": "c",
-          "answer4": "d",
-          "correct": "d"
-        }
-      ],
-      "id": 10
     },
     {
       "name": "Mathematique",

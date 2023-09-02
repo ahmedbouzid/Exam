@@ -8,6 +8,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
+import { AuthModule } from '../auth/auth.module';
 
 
 
@@ -25,7 +26,8 @@ import { BrowserModule } from '@angular/platform-browser';
     HttpClientModule,
     RouterModule ,
     BrowserModule  ,
-    
+    AuthModule
+
   ]
 })
 export class ProfessorModule { }
