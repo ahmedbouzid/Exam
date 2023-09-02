@@ -4,22 +4,22 @@
       <strong > Question {{index +1}} :  <span class="text-danger"> {{item.question}} </span> </strong>
       <div class="row mt-3" >
           <div class="col-md-6 col-sm-12">
-              <mat-radio-button *ngIf="user.role !== 'professor'" value="answer1" color="warn"></mat-radio-button>
+              <mat-radio-button name="{{index}}" *ngIf="user.role !== 'professor'" value="answer1" color="warn"></mat-radio-button>
               <label>  {{item.answer1}} </label>
           </div>
 
           <div class="col-md-6 col-sm-12">
-              <mat-radio-button *ngIf="user.role !== 'professor'" value="answer2"  color="warn"></mat-radio-button>
+              <mat-radio-button name="{{index}}" *ngIf="user.role !== 'professor'" value="answer2"  color="warn"></mat-radio-button>
               <label> {{item.answer2}}  </label>
           </div>
 
           <div class="col-md-6 col-sm-12">
-              <mat-radio-button *ngIf="user.role !== 'professor'" value="answer3"  color="warn"></mat-radio-button>
+              <mat-radio-button name="{{index}}" *ngIf="user.role !== 'professor'" value="answer3"  color="warn"></mat-radio-button>
               <label> {{item.answer3}}  </label>
           </div>
 
           <div class="col-md-6 col-sm-12">
-              <mat-radio-button *ngIf="user.role !== 'professor'" value="answer4" color="warn"></mat-radio-button>
+              <mat-radio-button name="{{index}}" *ngIf="user.role !== 'professor'" value="answer4" color="warn"></mat-radio-button>
               <label> {{item.answer4}}  </label>
           </div>
       </div>
