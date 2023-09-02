@@ -17,11 +17,7 @@
     }
   ],
   "subjects": [
-    {
-      "questions": [],
-      "name": "",
-      "id": 1
-    },
+
     {
       "name": "Mathematique",
       "questions": [
