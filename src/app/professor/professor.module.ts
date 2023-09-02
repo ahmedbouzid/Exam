@@ -4,6 +4,10 @@ import { NewExamComponent } from './components/new-exam/new-exam.component';
 import { StudentsComponent } from './components/students/students.component';
 import { SubjectsComponent } from './components/subjects/subjects.component';
 import { SharedModule } from '../shared/shared.module';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+import { BrowserModule } from '@angular/platform-browser';
 
 
 
@@ -11,11 +15,17 @@ import { SharedModule } from '../shared/shared.module';
   declarations: [
     NewExamComponent,
     StudentsComponent,
-    SubjectsComponent
+    SubjectsComponent,
+
   ],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    RouterModule ,
+    BrowserModule  ,
+    
   ]
 })
 export class ProfessorModule { }

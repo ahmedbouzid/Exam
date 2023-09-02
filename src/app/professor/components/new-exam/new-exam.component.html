@@ -1,66 +1,66 @@
 <div class="new-exam">
-  <mat-horizontal-stepper linear #stepper>
-      <mat-step label="Subject Name" completed="true">
+  <mat-horizontal-stepper linear #stepper [selectedIndex]="stepperIndex">
+      <mat-step label="Subject Name" [completed]="startAdd">
           <div class="AddSubject">
               <div>Subject : </div>
               <mat-form-field appearance="fill" color="warn">
                   <mat-label>Subject</mat-label>
-                  <input matInput type="text"  >
+                  <input matInput type="text" [formControl]="name" >
               </mat-form-field>
-              <button color="warn"  mat-raised-button matStepperNext>Start</button>
+              <button color="warn"  mat-raised-button matStepperNext (click)="onStart()">Start</button>
           </div>
 
       </mat-step>
-      <mat-step label="Questions" completed="true">
+      <mat-step label="Questions  {{subjectName}} "  [completed]="preview">
           <div class="question">
-              <form >
+              <form [formGroup]="questionForm" >
                   <mat-form-field appearance="outline" color="warn" class="queiz">
                       <mat-label>Question</mat-label>
-                      <input matInput type="text"  >
+                      <input matInput type="text" formControlName="question"  >
                   </mat-form-field>
 
               <div class="row">
                       <div class="col-md-6 col-sm-12">
-                      <mat-radio-button value="answer1"  color="warn"></mat-radio-button>
+                      <mat-radio-button (change)="getCorrect($event)" value="answer1"  color="warn"></mat-radio-button>
                           <mat-form-field color="warn">
                               <mat-label>Answer A</mat-label>
-                              <input matInput type="text"  >
+                              <input matInput type="text" formControlName="answer1" >
                           </mat-form-field>
                       </div>
 
                       <div class="col-md-6 col-sm-12">
-                      <mat-radio-button value="answer2"  color="warn"></mat-radio-button>
+                      <mat-radio-button value="answer2" (change)="getCorrect($event)" color="warn"></mat-radio-button>
                           <mat-form-field color="warn">
                               <mat-label>Answer B</mat-label>
-                              <input matInput type="text"  >
+                              <input matInput type="text" formControlName="answer2" >
                           </mat-form-field>
 
                       </div>
 
                       <div class="col-md-6 col-sm-12">
-                      <mat-radio-button value="answer3"  color="warn"></mat-radio-button>
+                      <mat-radio-button value="answer3" (change)="getCorrect($event)" color="warn"></mat-radio-button>
                       <mat-form-field color="warn">
                               <mat-label>Answer C</mat-label>
-                              <input matInput type="text"   >
+                              <input matInput type="text"  formControlName="answer3" >
                           </mat-form-field>
                       </div>
 
                       <div class="col-md-6 col-sm-12">
-                          <mat-radio-button value="answer4" color="warn"></mat-radio-button>
+                          <mat-radio-button value="answer4" (change)="getCorrect($event)" color="warn"></mat-radio-button>
                           <mat-form-field color="warn">
                               <mat-label>Answer D</mat-label>
-                              <input matInput type="text"  >
+                              <input matInput type="text" formControlName="answer4" >
                           </mat-form-field>
                       </div>
                   </div>
                   <div class="questBtn">
                       <div>
-                          <button mat-raised-button class="btn btn-success" matStepperNext >Finish</button>
-                          <button mat-raised-button color="warn" matStepperPrevious >Cancel</button>
+                        <button mat-raised-button class="btn btn-success" (click)="onSave()" [disabled]="!questions.length">{{preview ? 'Display' :'Finish'}}</button>
+                        <button mat-raised-button color="warn" matStepperPrevious (click)="onCancel()"  >Cancel</button>
                       </div>
                       <div>
-                          <button mat-raised-button color="accent">Delete</button>
-                          <button mat-raised-button color="primary" >Save</button>
+                          <button mat-raised-button color="accent" (click)="clearAll()">Delete</button>
+                          <button mat-raised-button color="primary"  [disabled]="questionForm.invalid" (click)="createQuestion()">Save</button>
                       </div>
 
                   </div>
@@ -69,29 +69,29 @@
       </mat-step>
       <mat-step label="Display Test" completed="false">
           <div class="examBox">
-              <div class="examhead text-center"><h2>Math Test</h2></div>
-              <div class="quizBox">
-                  <strong><span class="text-danger">Question</span> .  test</strong>
+              <div class="examhead text-center"><h2> {{subjectName}} </h2></div>
+              <div class="quizBox" *ngFor="let item of questions ; let index = index">
+                  <strong> Question : <span class="text-danger"> {{item.question}} </span> </strong>
                   <div class="row" dir="rtl">
                       <div class="col-sm-12">
-                          A. Test
+                          A. {{item.answer1}}
                       </div>
                       <div class="col-sm-12">
-                          B. Test
+                          B. {{item.answer2}}
                       </div>
                       <div class="col-sm-12">
-                          C. Test
+                          C. {{item.answer3}}
                       </div>
                       <div class="col-sm-12">
-                          D. Test
+                          D. {{item.answer4}}
                       </div>
                       <div class="col-sm-12">
-                          <span class="text-success">The correct Answer</span>
+                          <span class="text-success"> {{item.correct}} </span>
                       </div>
                   </div>
                   <div class="text-right">
-                      <button mat-raised-button class="btn btn-warning" >Edit </button>
-                      <button mat-raised-button  class="btn btn-danger" >Delete</button>
+                      <button mat-raised-button color="" class="btn btn-warning" >Edit </button>
+                      <button mat-raised-button color="warn" class="btn btn-danger" (click)="delete(index)" >Delete</button>
                   </div>
                   <hr>
               </div>
