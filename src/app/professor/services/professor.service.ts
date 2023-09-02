@@ -13,5 +13,7 @@ export class ProfessorService {
   updateSubject( id :number, model :any ) {
     return this.http.put(this.API +'subjects/' + id  , model)
   }
-
+  getAllSubjects() {
+    return this.http.get(this.API+'subjects')
+  }
 }
