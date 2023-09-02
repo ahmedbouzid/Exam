@@ -10,7 +10,7 @@ import { NewExamComponent } from './professor/components/new-exam/new-exam.compo
 const routes: Routes = [
   {path:'login' , component:LoginComponent},
   {path:'register' , component:RegisterComponent},
-  {path:'exam' , component:ExamComponent},
+  {path:'exam/:id' , component:ExamComponent},
   {path:'students' , component:StudentsComponent},
   {path:'subjects' , component:SubjectsComponent},
   {path:'new-exam' , component:NewExamComponent},

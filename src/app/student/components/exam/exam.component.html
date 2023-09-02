@@ -1,32 +1,35 @@
 <div class="examBox">
-  <div class="examhead text-center"><h2>Science Test</h2></div>
-  <div class="quizBox">
-      <strong ><span class="text-danger">Question 1</span> .  test</strong>
+  <div class="examhead text-center"><h2> Test {{oneSubject.name}} </h2></div>
+  <div class="quizBox" *ngFor="let item of oneSubject.questions ; let index =index">
+      <strong > Question {{index +1}} :  <span class="text-danger"> {{item.question}} </span> </strong>
       <div class="row mt-3" >
           <div class="col-md-6 col-sm-12">
-              <mat-radio-button value="answer1" color="warn"></mat-radio-button>
-              <label>Test</label>
+              <mat-radio-button *ngIf="user.role !== 'professor'" value="answer1" color="warn"></mat-radio-button>
+              <label>  {{item.answer1}} </label>
           </div>
 
           <div class="col-md-6 col-sm-12">
-              <mat-radio-button value="answer2"  color="warn"></mat-radio-button>
-              <label>Test</label>
+              <mat-radio-button *ngIf="user.role !== 'professor'" value="answer2"  color="warn"></mat-radio-button>
+              <label> {{item.answer2}}  </label>
           </div>
 
           <div class="col-md-6 col-sm-12">
-              <mat-radio-button value="answer3"  color="warn"></mat-radio-button>
-              <label>Test</label>
+              <mat-radio-button *ngIf="user.role !== 'professor'" value="answer3"  color="warn"></mat-radio-button>
+              <label> {{item.answer3}}  </label>
           </div>
 
           <div class="col-md-6 col-sm-12">
-              <mat-radio-button value="answer4" color="warn"></mat-radio-button>
-              <label>Test</label>
+              <mat-radio-button *ngIf="user.role !== 'professor'" value="answer4" color="warn"></mat-radio-button>
+              <label> {{item.answer4}}  </label>
           </div>
+      </div>
+      <div class="text-start">
+        <button *ngIf="user.role == 'professor'" mat-raised-button color="warn" (click)="delete(index)">Delete</button>
       </div>
       <hr>
   </div>
   <div class="text-center">
-      <button class="btn btn-success px-5 fs-5"> Result</button>
+      <button *ngIf="user.role !== 'professor'" class="btn btn-success px-5 fs-5"> Result</button>
   </div>
 
 </div>

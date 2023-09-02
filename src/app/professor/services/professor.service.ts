@@ -20,4 +20,7 @@ export class ProfessorService {
   deleteSubject(id : number) {
    return this.http.delete(this.API +'subjects/'+id)
   }
+  getOneSubject(id : number) {
+    return this.http.get(this.API +'subjects/'+ id)
+  }
 }
