@@ -55,6 +55,7 @@ export class LoginComponent implements OnInit{
         username: user.username,
         email : user.email,
         role: this.type,
+        userID : user.id
       };
 
       this.service.login(model).subscribe((res) => {

@@ -15,6 +15,10 @@ export class ExamComponent  implements OnInit{
   user : any ;
   SCORESTUDENT :any ;
   showResult : boolean = false ;
+  studentInfo : any ;
+  userSubjects : any[]= [] ;
+  // ** For checking if exam already validate
+  validExamBo :boolean = true ;
 constructor(
   private currentRoute : ActivatedRoute,
   private service : ProfessorService ,
@@ -27,8 +31,10 @@ constructor(
 
   ngOnInit(): void {
     this.id = this.currentRoute.snapshot.paramMap.get('id')
-    this.getOneSubject()
-    this.getUserInfo()
+    this.getOneSubject() ;
+    this.getLoggedInUserInfo() ;
+
+
   }
 
   getOneSubject(){
@@ -49,14 +55,20 @@ constructor(
 
 
   }
-  getUserInfo() {
+  getLoggedInUserInfo() {
     this.authService.getRole().subscribe((res) => {
       this.user = res ;
-      console.log('USer Info ====================================');
-      console.log(this.user);
-      console.log('====================================');
+
+      this.getUserData()
     })
   }
+getUserData(){
+this.authService.getStudent(this.user.userID).subscribe((res :any) => {
+this.studentInfo = res ;
+this.userSubjects = res?.subjects ? res?.subjects : [] ;
+this.validExam() ;
+})
+}
   getAnswer(event :any) {
 
    let value = event.value ;
@@ -71,12 +83,37 @@ constructor(
       for(let x in this.oneSubject.questions) {
         if(this.oneSubject.questions[x].studentAnswer == this.oneSubject.questions[x].correct)
         this.SCORESTUDENT++ ;
-        console.log('====================================');
-        console.log(this.SCORESTUDENT);
-        console.log('====================================');
+
       }
       this.showResult = true ;
+      this.userSubjects.push({
+        name : this.oneSubject.name,
+        id : this.id ,
+        degree : this.SCORESTUDENT
+      })
+      const model = {
+        username : this.studentInfo.username ,
+        email : this.studentInfo.email ,
+        password : this.studentInfo.password ,
+        subjects : this.userSubjects
+      }
+      this.authService.updateUser(this.user.userID , model).subscribe( res => {
+        this.toast.success('Result Registered Succufully')
+      })
 
+  }
+
+  validExam() {
+    for(let x in this.userSubjects) {
+      if(this.userSubjects[x].id == this.id) {
+        this.SCORESTUDENT = this.userSubjects[x].degree ;
+        this.validExamBo = false ;
+        this.toast.warning('Exercice has been completed')
+      }
+    }
+    console.log('====================================');
+    console.log(this.validExamBo);
+    console.log('====================================');
   }
 
 }

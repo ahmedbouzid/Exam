@@ -25,4 +25,10 @@ export class AuthService {
   login (model : any){
     return this.http.put(this.APi + 'login/1' , model)
   }
+  getStudent(id :number) {
+    return this.http.get(this.APi+"students/" + id)
+  }
+  updateUser(id :number , model : any) {
+    return this.http.put(this.APi+"students/" + id , model)
+  }
 }

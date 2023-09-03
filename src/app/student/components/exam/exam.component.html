@@ -4,22 +4,23 @@
       <strong > Question {{index +1}} :  <span class="text-danger"> {{item?.question}} </span> </strong>
       <div class="row mt-3" >
           <div class="col-md-6 col-sm-12">
-              <mat-radio-button name="{{index}}" (change)="getAnswer($event)" value="{{item.answer1}}" *ngIf="user.role !== 'professor'" value="answer1" color="warn"></mat-radio-button>
+            <!-- add showResult to ng if condition to hide radio button after click result  -->
+              <mat-radio-button  name="{{index}}" (change)="getAnswer($event)" value="{{item.answer1}}" *ngIf="user.role !== 'professor' &&  !showResult && validExamBo" value="answer1" color="warn"></mat-radio-button>
               <label>  {{item.answer1}} </label>
           </div>
 
           <div class="col-md-6 col-sm-12">
-              <mat-radio-button name="{{index}}" (change)="getAnswer($event)" value="{{item.answer2}}" *ngIf="user.role !== 'professor'" value="answer2"  color="warn"></mat-radio-button>
+              <mat-radio-button  name="{{index}}" (change)="getAnswer($event)" value="{{item.answer2}}" *ngIf="user.role !== 'professor' &&  !showResult && validExamBo" value="answer2"  color="warn"></mat-radio-button>
               <label> {{item.answer2}}  </label>
           </div>
 
           <div class="col-md-6 col-sm-12">
-              <mat-radio-button name="{{index}}" (change)="getAnswer($event)" value="{{item.answer3}}" *ngIf="user.role !== 'professor'" value="answer3"  color="warn"></mat-radio-button>
+              <mat-radio-button  name="{{index}}" (change)="getAnswer($event)" value="{{item.answer3}}" *ngIf="user.role !== 'professor' &&  !showResult && validExamBo" value="answer3"  color="warn"></mat-radio-button>
               <label> {{item.answer3}}  </label>
           </div>
 
           <div class="col-md-6 col-sm-12">
-              <mat-radio-button name="{{index}}" (change)="getAnswer($event)" value="{{item.answer4}}" *ngIf="user.role !== 'professor'" value="answer4" color="warn"></mat-radio-button>
+              <mat-radio-button  name="{{index}}" (change)="getAnswer($event)" value="{{item.answer4}}" *ngIf="user.role !== 'professor' &&  !showResult && validExamBo" value="answer4" color="warn"></mat-radio-button>
               <label> {{item.answer4}}  </label>
           </div>
       </div>
@@ -29,8 +30,8 @@
       <hr>
   </div>
   <div class="text-center" *ngIf="user.role !== 'professor'">
-    <span *ngIf="showResult" class="fs-4 text-success"> {{SCORESTUDENT}} / {{oneSubject.questions.length}}</span>
-      <button *ngIf="!showResult" class="btn btn-success px-5 fs-5" (click)="result()"> Result</button>
+    <span *ngIf="showResult || !validExamBo" class="fs-4 text-success"> {{SCORESTUDENT}} / {{oneSubject.questions.length}}</span>
+      <button *ngIf="!showResult && validExamBo" class="btn btn-success px-5 fs-5" (click)="result()"> Result</button>
   </div>
 
 </div>
